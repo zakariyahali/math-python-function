@@ -1,0 +1,23 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the periodic function f(t)
+def f(t):
+    t = np.mod(t + np.pi, 2 * np.pi) - np.pi  # Map t to [-pi, pi]
+    return np.pi**2 - t**2
+
+# Define the range of t for plotting
+t = np.linspace(-4 * np.pi, 4 * np.pi, 1000)
+y = f(t)
+
+# Plot the graph
+plt.figure(figsize=(10, 6))
+plt.plot(t, y, label=r"$f(t) = \pi^2 - t^2$", color='blue')
+plt.title("Graph of $f(t)$ over $[-4\pi, 4\pi]$", fontsize=16)
+plt.xlabel("$t$", fontsize=14)
+plt.ylabel("$f(t)$", fontsize=14)
+plt.axhline(0, color='black', linewidth=0.8, linestyle="--")
+plt.axvline(0, color='black', linewidth=0.8, linestyle="--")
+plt.grid(True)
+plt.legend(fontsize=12)
+plt.show()
